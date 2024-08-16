@@ -6,4 +6,4 @@ fs:
     ARG image=fs:latest
     FROM scratch
     COPY . /
-    SAVE IMAGE --name ${image}
+    SAVE IMAGE --push ${image}
