@@ -17,7 +17,7 @@ disk:
 
 userdata:
     FROM ubuntu:latest
-
+    RUN apt-get update && apt-get install -y genisoimage
     WORKDIR /workdir
     COPY user-data user-data
     RUN touch meta-data
