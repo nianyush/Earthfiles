@@ -14,3 +14,13 @@ disk:
     FROM scratch
     COPY ${file} /disk/
     SAVE IMAGE --push ${image}
+
+userdata:
+    FROM ubuntu:latest
+
+    WORKDIR /workdir
+    COPY user-data user-data
+    RUN touch meta-data
+    RUN genisoimage -output /workdir/userdata.iso -volid cidata -joliet -rock user-data meta-data
+
+    SAVE ARTIFACT /workdir/userdata.iso AS LOCAL userdata.iso
