@@ -12,8 +12,8 @@ fs:
 disk:
     ARG file
     FROM scratch
-    RUN ls -ltrh
-    COPY ${file} /disk/
+
+    COPY /${file} /disk/
     SAVE IMAGE --push ${image}
 
 userdata:
